@@ -163,22 +163,30 @@ extern "C" int SDL_SendKeyboardKey(Uint8 state, SDL_Scancode scancode);
 	if (btn1 == nil) {
 		btn1 = [self createButton:@"ESC" keycode:(int)SDL_SCANCODE_ESCAPE rect:CGRectZero];
 	}
+    if (btn2 == nil) {
+        btn2 = [self createButton:@"Cheat" keycode:(int)SDL_SCANCODE_F2 rect:CGRectZero];
+    }
 
 	UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
 	UIViewController *controller = window.rootViewController;
 
 	CGRect rcScreen = controller.view.bounds;
 	CGSize sizeButton = CGSizeMake(60,30);
-	CGRect rcButton = CGRectMake(10, rcScreen.size.height-sizeButton.height, sizeButton.width, sizeButton.height);
-	btn1.frame = rcButton;
+	CGRect rcButton1 = CGRectMake(10, rcScreen.size.height-sizeButton.height, sizeButton.width, sizeButton.height);
+    CGRect rcButton2 = CGRectMake(rcButton1.origin.x + rcButton1.size.width + 10, rcScreen.size.height-sizeButton.height, sizeButton.width, sizeButton.height);
+	btn1.frame = rcButton1;
+    btn2.frame = rcButton2;
 	[controller.view addSubview:btn1];
+    [controller.view addSubview:btn2];
 
 	btn1.alpha = 1;
+    btn2.alpha = 1;
 }
 
 - (void)hideButtonControls
 {
 	btn1.alpha = 0;
+    btn2.alpha = 0;
 }
 @end
 

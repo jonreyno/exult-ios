@@ -164,7 +164,7 @@ extern "C" int SDL_SendKeyboardKey(Uint8 state, SDL_Scancode scancode);
 		btn1 = [self createButton:@"ESC" keycode:(int)SDL_SCANCODE_ESCAPE rect:CGRectZero];
 	}
     if (btn2 == nil) {
-        btn2 = [self createButton:@"Cheat" keycode:(int)SDL_SCANCODE_F2 rect:CGRectZero];
+        btn2 = [self createButton:@"Create" keycode:(int)SDL_SCANCODE_INSERT rect:CGRectZero];
     }
 
 	UIWindow *window = [[[UIApplication sharedApplication] delegate] window];

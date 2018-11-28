@@ -446,8 +446,13 @@ void ShortcutBar_gump::onItemClicked(int index, bool doubleClicked) {
 				ActionCloseOrMenu(NULL); // close_or_menu
 			break;
 		} case SB_ITEM_BACKPACK: {
-			const int j = -1;
-			ActionInventory(&j); // inventory
+            if (doubleClicked && cheat())
+                cheat.shape_browser();
+            else if (!doubleClicked)
+            {
+                const int j = -1;
+                ActionInventory(&j); // inventory
+            }
 			break;
 		} case SB_ITEM_SPELLBOOK: {
 			gwin->activate_item(761); // useitem 761
